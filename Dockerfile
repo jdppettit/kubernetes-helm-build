@@ -1,8 +1,7 @@
-FROM ubuntu:latest
+FROM buhman/docker-compose:latest
 
-RUN apt-get update && apt-get install -y \
-curl
-CMD /bin/bash
+RUN apk add bash
+CMD bash
 
 RUN version=$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt) \
   curl -L https://storage.googleapis.com/kubernetes-release/release/$version/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl \
